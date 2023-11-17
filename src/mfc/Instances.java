@@ -1,16 +1,9 @@
 package mfc;
 
-import Services.ServiceCarShop;
-import Services.ServiceProduct;
-import Services.ServiceReceipt;
-import Services.ServiceTest;
-import controllers.ControllerCarShop;
-import controllers.ControllerPerson;
-import controllers.ControllerReceipt;
-import controllers.ControllerTest;
+import Services.*;
+import controllers.*;
 
 public class Instances {
-
     private final ServiceCarShop serviceCarShop;
 
     private final ServiceProduct serviceProduct;
@@ -27,6 +20,10 @@ public class Instances {
 
     private final ServiceTest serviceTest;
 
+    private final ControllerOrder controllerOrder;
+
+    private final ServiceOrder serviceOrder;
+
     public Instances() {
         this.serviceCarShop = new ServiceCarShop();
         this.serviceProduct = new ServiceProduct();
@@ -36,6 +33,8 @@ public class Instances {
         this.controllerCarShop = new ControllerCarShop();
         this.controllerTest = new ControllerTest();
         this.serviceTest = new ServiceTest();
+        this.controllerOrder = new ControllerOrder();
+        this.serviceOrder = new ServiceOrder();
     }
 
     public ServiceCarShop getServiceCarShop() {
@@ -68,5 +67,13 @@ public class Instances {
 
     public ServiceTest getServiceTest() {
         return serviceTest;
+    }
+
+    public ControllerOrder getControllerOrder() {
+        return controllerOrder;
+    }
+
+    public ServiceOrder getServiceOrder() {
+        return serviceOrder;
     }
 }

@@ -1,13 +1,7 @@
 package mfc;
 
-import Services.ServiceCarShop;
-import Services.ServiceProduct;
-import Services.ServiceReceipt;
-import Services.ServiceTest;
-import controllers.ControllerCarShop;
-import controllers.ControllerPerson;
-import controllers.ControllerReceipt;
-import controllers.ControllerTest;
+import Services.*;
+import controllers.*;
 
 public class ModelFactoryController {
     Instances instances;
@@ -60,6 +54,7 @@ public class ModelFactoryController {
         return ModelFactoryController.getInstance().instances.getServiceTest();
     }
 
+    public ServiceOrder getServiceOrder(){return ModelFactoryController.getInstance().instances.getServiceOrder();}
 
-
+    public ControllerOrder getControllerOrder(){return ModelFactoryController.getInstance().instances.getControllerOrder();}
 }

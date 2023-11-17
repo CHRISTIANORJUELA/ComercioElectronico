@@ -7,14 +7,16 @@ import java.util.ArrayList;
 
 public class ServiceReceipt {
     private final ArrayList<Receipt> receiptArrayList = new ArrayList<>();
-
-    public void append(Receipt receipt){
+    private Integer totalAmoung = 0;
+    public Receipt append(Receipt receipt){
         Integer amoung = receipt.getCarShop().getListProduct()
                 .stream()
                 .map(Product::getPrice)
                 .reduce(0, Integer::sum);
         receipt.setTotalAmoung(amoung);
         receiptArrayList.add(receipt);
+        totalAmoung+=amoung;
+        return receipt;
     }
 
     public void showReceipt(){
@@ -25,5 +27,9 @@ public class ServiceReceipt {
                 .getListProduct()
                 .forEach(p-> System.out.println(p.getName()));
         System.out.println("El total es "+receipt.getTotalAmoung());
+    }
+
+    public void showAmount(){
+        System.out.println("El monto total de la empresa es "+this.totalAmoung);
     }
 }

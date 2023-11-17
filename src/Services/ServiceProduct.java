@@ -13,7 +13,7 @@ public class ServiceProduct {
             new Product("Bicicleta",200,"Rodar"),
             new Product("Tv",500,"Enceder Pantalla"),
             new Product("Corredora",900,"Encentar cinta"),
-            new Product("Consola gamer",150,"Cargar Juego")
+            new Product("Celular",150,"Escuchar musica")
     ));
 
 

@@ -39,4 +39,9 @@ public class Product {
     public Product cloned(){
         return new Product(this);
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

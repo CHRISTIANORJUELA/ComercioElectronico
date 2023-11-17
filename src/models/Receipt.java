@@ -1,7 +1,6 @@
 package models;
 
 public class Receipt {
-
     private static int id;
     private int idSale;
     private Person person;
