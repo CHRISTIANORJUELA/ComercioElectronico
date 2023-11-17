@@ -5,14 +5,13 @@ import models.CarShop;
 import models.Person;
 import models.Product;
 import models.Receipt;
-
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class ControllerReceipt {
+    private ModelFactoryController mfc;
 
-    private final ModelFactoryController mfc = ModelFactoryController.getInstance();
     public void finishSell(){
+        mfc = ModelFactoryController.getInstance();
         Person person = mfc.getControllerPerson().putPerson();
         ArrayList<Product> listProducts = mfc.getServiceCarShop().getProductArrayList();
         CarShop carShop = new CarShop(person,listProducts);
@@ -20,6 +19,7 @@ public class ControllerReceipt {
         mfc.getServiceReceipt().append(receipt);
         mfc.getServiceReceipt().showReceipt();
         mfc.getServiceCarShop().cleanCarShop();
+
     }
 
 

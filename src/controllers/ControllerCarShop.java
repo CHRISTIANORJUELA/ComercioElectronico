@@ -3,24 +3,36 @@ package controllers;
 import mfc.ModelFactoryController;
 import models.Product;
 import javax.swing.*;
+import java.util.NoSuchElementException;
 
 public class ControllerCarShop {
 
-    ModelFactoryController mfc = ModelFactoryController.getInstance();
-    public void buyProducts(){
+    private ModelFactoryController mfc;
+
+    public void buyProducts() {
+        mfc = ModelFactoryController.getInstance();
         mfc.getServiceProduct().showProducts();
         String nameProduct;
         Product product;
-        while (true){
+        while (true) {
             nameProduct = JOptionPane.showInputDialog("Ingrese un nombre de un producto o escriba \n e para salir");
-            if (nameProduct.equalsIgnoreCase("e")){
+            if (nameProduct.equalsIgnoreCase("e")) {
                 break;
             }
-            product = mfc.getServiceProduct().find(nameProduct).get();
-            if (product!=null){
+            try {
+                product = mfc.getServiceProduct()
+                        .find(nameProduct)
+                        .orElseThrow();
                 mfc.getServiceCarShop().append(product);
+                System.out.println("Agregado al carrito");
+            } catch (NoSuchElementException e) {
+                System.out.println("El producto no existe");
             }
         }
-        mfc.getControllerReceipt().finishSell();
+        if (!mfc.getServiceCarShop().getProductArrayList().isEmpty()){
+            mfc.getControllerReceipt().finishSell();
+        }
     }
+
+
 }

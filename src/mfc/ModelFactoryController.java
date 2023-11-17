@@ -3,8 +3,11 @@ package mfc;
 import Services.ServiceCarShop;
 import Services.ServiceProduct;
 import Services.ServiceReceipt;
+import Services.ServiceTest;
+import controllers.ControllerCarShop;
 import controllers.ControllerPerson;
 import controllers.ControllerReceipt;
+import controllers.ControllerTest;
 
 public class ModelFactoryController {
     Instances instances;
@@ -44,5 +47,19 @@ public class ModelFactoryController {
     public ControllerPerson getControllerPerson(){
         return ModelFactoryController.getInstance().instances.getControllerPerson();
     }
+
+    public ControllerCarShop getControllerCarShop(){
+        return ModelFactoryController.getInstance().instances.getControllerCarShop();
+    }
+
+    public ControllerTest getControllerTest(){
+        return ModelFactoryController.getInstance().instances.getControllerTest();
+    }
+
+    public ServiceTest getServiceTest(){
+        return ModelFactoryController.getInstance().instances.getServiceTest();
+    }
+
+
 
 }

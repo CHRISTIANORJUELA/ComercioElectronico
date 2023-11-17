@@ -23,7 +23,7 @@ public class ServiceReceipt {
         System.out.println("Los productos que compro son :");
         receipt.getCarShop()
                 .getListProduct()
-                .forEach(x-> x.getName());
+                .forEach(p-> System.out.println(p.getName()));
         System.out.println("El total es "+receipt.getTotalAmoung());
     }
 }
